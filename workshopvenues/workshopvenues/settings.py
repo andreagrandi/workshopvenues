@@ -13,12 +13,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'workshopvenues.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': secrets.db_engine, # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': secrets.db_name,                      # Or path to database file if using sqlite3.
         'USER': secrets.db_user,                      # Not used with sqlite3.
         'PASSWORD': secrets.db_password,                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'HOST': secrets.db_host,                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': secrets.db_port,                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 

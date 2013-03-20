@@ -3,3 +3,4 @@
 *.pyc
 local_settings.py
 workshopvenues/workshopvenues/secrets.py
+*.db
