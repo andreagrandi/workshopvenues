@@ -23,14 +23,11 @@ class Migration(SchemaMigration):
         # Deleting field 'Venue.postcode'
         db.delete_column(u'venues_venue', 'postcode')
 
+        # Deleting field 'Venue.address'
+        db.delete_column(u'venues_venue', 'address')
 
-        # Renaming column for 'Venue.address' to match new field type.
-        db.rename_column(u'venues_venue', 'address', 'address_id')
-        # Changing field 'Venue.address'
-        db.alter_column(u'venues_venue', 'address_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['venues.Address']))
-        # Adding index on 'Venue', fields ['address']
-        db.create_index(u'venues_venue', ['address_id'])
-
+        db.add_column(u'venues_venue', 'address', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['venues.Address']),
+                      keep_default=False)
 
     def backwards(self, orm):
         # Removing index on 'Venue', fields ['address']
