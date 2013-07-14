@@ -10,6 +10,7 @@ class Address(models.Model):
     street = models.CharField(max_length=200)
     town = models.CharField(max_length=30)
     postcode = models.CharField(max_length=10)
+    country = models.CharField(max_length=30, blank=True)
 
 class Venue(models.Model):
     name = models.CharField(max_length=30)
