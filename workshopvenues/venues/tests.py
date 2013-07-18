@@ -6,7 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from .models import Address, Venue
+from .models import Address, Venue, Facility
 
 
 class ModelsTest(TestCase):
@@ -18,6 +18,17 @@ class ModelsTest(TestCase):
         a.country = 'UK'
         a.save()
         self.assertTrue(a.id >= 0)
+
+    def test_create_facility(self):
+        fac_wifi = Facility()
+        fac_wifi.name = 'WiFi'
+        fac_wifi.save()
+        self.assertTrue(fac_wifi.id >= 0)
+
+        fac_elevator = Facility()
+        fac_elevator.name = 'Elevator'
+        fac_elevator.save()
+        self.assertTrue(fac_elevator.id >= 0)
 
     def test_create_venue(self):
         # Create the address first
