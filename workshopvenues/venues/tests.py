@@ -6,11 +6,15 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
+from .models import Address
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class ModelsTest(TestCase):
+    def test_create_address(self):
+        a = Address()
+        a.street = '23, Test Street'
+        a.town = 'London'
+        a.postcode = 'xxxxx'
+        a.country = 'UK'
+        a.save()
+        self.assertTrue(a.id >= 0)
