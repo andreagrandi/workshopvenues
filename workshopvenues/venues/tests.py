@@ -39,11 +39,23 @@ class ModelsTest(TestCase):
         a.country = 'UK'
         a.save()
 
+        fac_wifi = Facility()
+        fac_wifi.name = 'WiFi'
+        fac_wifi.save()
+        self.assertTrue(fac_wifi.id >= 0)
+
+        fac_elevator = Facility()
+        fac_elevator.name = 'Elevator'
+        fac_elevator.save()
+        self.assertTrue(fac_elevator.id >= 0)
+
         # Create the venue
         v = Venue()
         v.name = 'Venue Test'
         v.website = 'www.myvenue.com'
         v.address = a
         v.save()
+        v.facilities.add(fac_wifi)
+        v.facilities.add(fac_elevator)
         self.assertEqual(v.address.town, 'London')
         self.assertTrue(v.id >= 0)
