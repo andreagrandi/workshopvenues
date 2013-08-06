@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
 {% if venues %}
     <ul>
     {% for venue in venues %}
@@ -7,3 +11,4 @@
 {% else %}
     <p>No venues are available.</p>
 {% endif %}
+{% endblock %}
