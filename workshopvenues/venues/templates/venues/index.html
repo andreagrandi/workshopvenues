@@ -1,0 +1,9 @@
+{% if venues %}
+    <ul>
+    {% for venue in venues %}
+        <li><a href="/venues/{{ venue.id }}/">{{ venue.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No venues are available.</p>
+{% endif %}
