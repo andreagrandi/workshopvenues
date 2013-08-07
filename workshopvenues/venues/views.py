@@ -4,4 +4,4 @@ from venues.models import Venue
 def index(request):
     venues = Venue.objects.all()
     context = {'venues': venues }
-    return render(request, 'venues/index.html', context)
+    return render(request, 'venues/about.html', context)
