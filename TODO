@@ -1,0 +1,3 @@
+- Secrets settings: move secret stuff into a file called '.settings.json' so
+    it's hidden in Cloud9IDE. Once there it can be read with this:
+    'import json ; json.load(open("whatever.json"))['password']' 
