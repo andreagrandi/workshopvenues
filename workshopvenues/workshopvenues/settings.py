@@ -1,25 +1,35 @@
 # Django settings for workshopvenues project.
 
-import secrets
 import os
+from django.core.exceptions import ImproperlyConfigured
+
+def get_env_variable(var_name):
+    """ Get the environment variable or return exception """
+
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set the %s environment variable" % var_name
+        raise ImproperlyConfigured(error_msg)
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     (secrets.admin_name, secrets.admin_email),
+     (get_env_variable("WORKSHOPVENUES_ADMIN_NAME"), get_env_variable("WORKSHOPVENUES_ADMIN_EMAIL")),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': secrets.db_engine, # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': secrets.db_name,                      # Or path to database file if using sqlite3.
-        'USER': secrets.db_user,                      # Not used with sqlite3.
-        'PASSWORD': secrets.db_password,                  # Not used with sqlite3.
-        'HOST': secrets.db_host,                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': secrets.db_port,                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': get_env_variable("WORKSHOPVENUES_DB_ENGINE"), # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': get_env_variable("WORKSHOPVENUES_DB_NAME"),                      # Or path to database file if using sqlite3.
+        'USER': get_env_variable("WORKSHOPVENUES_DB_USER"),                      # Not used with sqlite3.
+        'PASSWORD': get_env_variable("WORKSHOPVENUES_DB_PASSWORD"),                  # Not used with sqlite3.
+        'HOST': get_env_variable("WORKSHOPVENUES_DB_HOST"),                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': get_env_variable("WORKSHOPVENUES_DB_PORT"),                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -65,14 +75,14 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = secrets.static_root
+STATIC_ROOT = get_env_variable("WORKSHOPVENUES_STATIC_ROOT")
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = secrets.static_url
+STATIC_URL = get_env_variable("WORKSHOPVENUES_STATIC_URL")
 
 # Additional locations of static files
-STATICFILES_DIRS = secrets.staticfiles_dirs
+STATICFILES_DIRS = (os.path.join(PROJECT_PATH, get_env_variable("WORKSHOPVENUES_STATICFILES_ASSETS")),)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -83,7 +93,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = secrets.secret_key
+SECRET_KEY = get_env_variable("WORKSHOPVENUES_SECRET_KEY")
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (

@@ -1,6 +1,6 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
 workshopvenues/workshopvenues/secrets.py
 *.db
+env.sh
