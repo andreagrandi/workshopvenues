@@ -28,3 +28,7 @@ class Venue(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Image(models.Model):
+    filename = models.CharField(max_length=255)
+    venue = models.ForeignKey(Venue)
