@@ -17,6 +17,14 @@ class Venue(models.Model):
     website = models.CharField(max_length=50)
     address = models.ForeignKey(Address)
     facilities = models.ManyToManyField(Facility)
+    style = models.CharField(max_length=200, blank=True)
+    twitter = models.CharField(max_length=200, blank=True)
+    phone = models.CharField(max_length=30, blank=True)
+    contact = models.CharField(max_length=50, blank=True)
+    contact_email = models.CharField(max_length=50, blank=True)
+    contact_twitter = models.CharField(max_length=200, blank=True)
+    cost = models.CharField(max_length=200, blank=True)
+    capacity = models.CharField(max_length=200, blank=True)
 
     def __unicode__(self):
         return self.name
