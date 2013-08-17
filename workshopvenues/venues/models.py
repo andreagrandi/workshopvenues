@@ -6,11 +6,14 @@ class Facility(models.Model):
     def __unicode__(self):
         return self.name
 
+class Country(models.Model):
+    name = models.CharField(max_length=30)
+
 class Address(models.Model):
     street = models.CharField(max_length=200)
     town = models.CharField(max_length=30)
     postcode = models.CharField(max_length=10)
-    country = models.CharField(max_length=30, blank=True)
+    country = models.ForeignKey(Country, null=True)
 
 class Venue(models.Model):
     name = models.CharField(max_length=30)
