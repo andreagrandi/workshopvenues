@@ -14,7 +14,7 @@ class Address(models.Model):
 
 class Venue(models.Model):
     name = models.CharField(max_length=30)
-    website = models.CharField(max_length=50)
+    website = models.CharField(max_length=50, blank=True)
     address = models.ForeignKey(Address)
     facilities = models.ManyToManyField(Facility)
     style = models.CharField(max_length=200, blank=True)
