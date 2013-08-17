@@ -6,7 +6,7 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from .models import Venue, Facility, Image, Country
+from .models import Venue, Facility, Image, Country, City
 
 
 class ModelsTest(TestCase):
@@ -21,11 +21,37 @@ class ModelsTest(TestCase):
         fac_elevator.save()
         self.assertTrue(fac_elevator.id >= 0)
 
+    def test_create_country(self):
+        country = Country()
+        country.name = "United Kingdom"
+        country.save()
+        self.assertTrue(country.id >= 0)
+
+    def test_create_city(self):
+        # Create the Country first
+        country = Country()
+        country.name = "United Kingdom"
+        country.save()
+
+        # Create the City
+        city = City()
+        city.name = "London"
+        city.country = country
+        city.save()
+        self.assertTrue(city.id >= 0)
+
     def test_create_venue(self):
-        # Create the Country
-        c = Country()
-        c.name = "United Kingdom"
-        c.save()
+        # Create the Country first
+        country = Country()
+        country.name = "United Kingdom"
+        country.save()
+
+        # Create the City
+        city = City()
+        city.name = "London"
+        city.country = country
+        city.save()
+        self.assertTrue(city.id >= 0)
 
         # Create facilities
         fac_wifi = Facility()
@@ -43,21 +69,29 @@ class ModelsTest(TestCase):
         v.name = 'Venue Test'
         v.website = 'www.myvenue.com'
         v.street = '23, Test Street'
-        v.town = 'London'
         v.postcode = 'xxxxx'
-        v.country = c
+        v.country = country
+        v.city = city
         v.save()
         v.facilities.add(fac_wifi)
         v.facilities.add(fac_elevator)
-        self.assertEqual(v.town, 'London')
+        self.assertEqual(v.city.name, 'London')
+        self.assertEqual(v.country.name, 'United Kingdom')
         self.assertTrue(v.id >= 0)
     
     def test_create_image(self):
-        # Create the Country
-        c = Country()
-        c.name = "United Kingdom"
-        c.save()
-        
+        # Create the Country first
+        country = Country()
+        country.name = "United Kingdom"
+        country.save()
+
+        # Create the City
+        city = City()
+        city.name = "London"
+        city.country = country
+        city.save()
+        self.assertTrue(city.id >= 0)
+
         # Create facilities
         fac_wifi = Facility()
         fac_wifi.name = 'WiFi'
@@ -68,15 +102,15 @@ class ModelsTest(TestCase):
         fac_elevator.name = 'Elevator'
         fac_elevator.save()
         self.assertTrue(fac_elevator.id >= 0)
-              
+
         # Create the venue
         v = Venue()
         v.name = 'Venue Test'
         v.website = 'www.myvenue.com'
         v.street = '23, Test Street'
-        v.town = 'London'
         v.postcode = 'xxxxx'
-        v.country = c
+        v.country = country
+        v.city = city
         v.save()
         v.facilities.add(fac_wifi)
         v.facilities.add(fac_elevator)
