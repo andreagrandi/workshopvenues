@@ -6,16 +6,19 @@ Replace this with more appropriate tests for your application.
 """
 
 from django.test import TestCase
-from .models import Address, Venue, Facility, Image
+from .models import Address, Venue, Facility, Image, Country
 
 
 class ModelsTest(TestCase):
     def test_create_address(self):
+        c = Country()
+        c.name = "United Kingdom"
+        c.save()
         a = Address()
         a.street = '23, Test Street'
         a.town = 'London'
         a.postcode = 'xxxxx'
-        a.country = 'UK'
+        a.country = c
         a.save()
         self.assertTrue(a.id >= 0)
 
@@ -31,12 +34,17 @@ class ModelsTest(TestCase):
         self.assertTrue(fac_elevator.id >= 0)
 
     def test_create_venue(self):
+        # Create the Country
+        c = Country()
+        c.name = "United Kingdom"
+        c.save()
+
         # Create the address first
         a = Address()
         a.street = '23, Test Street'
         a.town = 'London'
         a.postcode = 'xxxxx'
-        a.country = 'UK'
+        a.country = c
         a.save()
 
         fac_wifi = Facility()
@@ -61,12 +69,17 @@ class ModelsTest(TestCase):
         self.assertTrue(v.id >= 0)
     
     def test_create_image(self):
+        # Create the Country
+        c = Country()
+        c.name = "United Kingdom"
+        c.save()
+
         # Create the address first
         a = Address()
         a.street = '23, Test Street'
         a.town = 'London'
         a.postcode = 'xxxxx'
-        a.country = 'UK'
+        a.country = c
         a.save()  
         
         fac_wifi = Facility()
@@ -95,6 +108,3 @@ class ModelsTest(TestCase):
         i.save()
         self.assertEqual(i.venue.name, 'Venue Test')        
         self.assertTrue(i.id >= 0) 
-        
-                     
-            
