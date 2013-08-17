@@ -6,14 +6,23 @@ class Facility(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "facilities"
+
 class Country(models.Model):
     name = models.CharField(max_length=30)
+
+    class Meta:
+        verbose_name_plural = "countries"
 
 class Address(models.Model):
     street = models.CharField(max_length=200)
     town = models.CharField(max_length=30)
     postcode = models.CharField(max_length=10)
     country = models.ForeignKey(Country, null=True)
+
+    class Meta:
+        verbose_name_plural = "addresses"
 
 class Venue(models.Model):
     name = models.CharField(max_length=30)
