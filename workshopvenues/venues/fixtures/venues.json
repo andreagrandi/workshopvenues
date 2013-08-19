@@ -1,0 +1,291 @@
+[
+{
+    "pk": 6, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "WiFi"
+    }
+},
+{
+    "pk": 7, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "Projector"
+    }
+},
+{
+    "pk": 8, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "Elevator"
+    }
+},
+{
+    "pk": 9, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "Kitchen"
+    }
+},
+{
+    "pk": 10, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "Private Rooms"
+    }
+},
+{
+    "pk": 11, 
+    "model": "venues.facility", 
+    "fields": {
+        "name": "Meeting Rooms"
+    }
+},
+{
+    "pk": 1, 
+    "model": "venues.country", 
+    "fields": {
+        "name": "United Kingdom"
+    }
+},
+{
+    "pk": 1, 
+    "model": "venues.city", 
+    "fields": {
+        "country": 1, 
+        "name": "London"
+    }
+},
+{
+    "pk": 45, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.adamstreet.co.uk", 
+        "city": 1, 
+        "style": "", 
+        "cost": "", 
+        "name": "Adam Street", 
+        "facilities": [], 
+        "country": 1, 
+        "twitter": "@adamstreetclub", 
+        "contact_twitter": "", 
+        "phone": "02073798000", 
+        "contact": "", 
+        "contact_email": "", 
+        "postcode": "", 
+        "address": "9 Adam Street", 
+        "capacity": ""
+    }
+},
+{
+    "pk": 46, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.altitudelondon.com", 
+        "city": 1, 
+        "style": "", 
+        "cost": "", 
+        "name": "Altitude 360", 
+        "facilities": [], 
+        "country": 1, 
+        "twitter": "", 
+        "contact_twitter": "", 
+        "phone": "", 
+        "contact": "Museu", 
+        "contact_email": "", 
+        "postcode": "", 
+        "address": "", 
+        "capacity": ""
+    }
+},
+{
+    "pk": 47, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.atworkhubs.co.uk", 
+        "city": 1, 
+        "style": "Co-working hub - open plan space & enclosed meeting rooms.", 
+        "cost": "", 
+        "name": "At Work Hubs", 
+        "facilities": [
+            6, 
+            7, 
+            9, 
+            10, 
+            11
+        ], 
+        "country": 1, 
+        "twitter": "@WorkHubs", 
+        "contact_twitter": "", 
+        "phone": "+442035982046", 
+        "contact": "Philip Dodson", 
+        "contact_email": "philip@atworkhubs.co.uk", 
+        "postcode": "NW12EW", 
+        "address": "105a Euston Street", 
+        "capacity": "up to 70 open plan networking"
+    }
+},
+{
+    "pk": 48, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "www.thebakerylondon.com", 
+        "city": 1, 
+        "style": "Creative relaxed event space and co-working space.", 
+        "cost": "", 
+        "name": "Bakery London", 
+        "facilities": [
+            6, 
+            7
+        ], 
+        "country": 1, 
+        "twitter": "@thebakeryldn", 
+        "contact_twitter": "", 
+        "phone": "+447811169369", 
+        "contact": "Alex Dunsdon or Andrew Humphries", 
+        "contact_email": "hello@thebakerylondon.com", 
+        "postcode": "EC1Y1AA", 
+        "address": "25 City Road", 
+        "capacity": "200"
+    }
+},
+{
+    "pk": 49, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "www.bloomsburybigtop.co.uk", 
+        "city": 1, 
+        "style": "2 large marquees and unique big top.", 
+        "cost": "", 
+        "name": "Bloomsbury Big Top", 
+        "facilities": [
+            7
+        ], 
+        "country": 1, 
+        "twitter": "@thelondonbigtop", 
+        "contact_twitter": "", 
+        "phone": "+448456446510", 
+        "contact": "Denis McCourt", 
+        "contact_email": "denis@awesome-events.co.uk", 
+        "postcode": "WC1N1DN", 
+        "address": "93 Guilford Street", 
+        "capacity": "2500 sqm"
+    }
+},
+{
+    "pk": 50, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://camdencollective.co.uk", 
+        "city": 1, 
+        "style": "", 
+        "cost": "", 
+        "name": "Camden Collective", 
+        "facilities": [
+            6
+        ], 
+        "country": 1, 
+        "twitter": "", 
+        "contact_twitter": "@CMDNCollective", 
+        "phone": "", 
+        "contact": "Nadine", 
+        "contact_email": "collective@camdentownunlimited.com", 
+        "postcode": "", 
+        "address": "37 Camden High Street", 
+        "capacity": "150 people."
+    }
+},
+{
+    "pk": 51, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "www.c-h-w.com", 
+        "city": 1, 
+        "style": "Conference & Events Centre.", 
+        "cost": "", 
+        "name": "Central Hall Westminster", 
+        "facilities": [
+            6, 
+            7
+        ], 
+        "country": 1, 
+        "twitter": "@CentralHall", 
+        "contact_twitter": "", 
+        "phone": "+442072228010", 
+        "contact": "Sales Team", 
+        "contact_email": "enquiries@c-h-w.com", 
+        "postcode": "SW1H9NH", 
+        "address": "Storey's Gate", 
+        "capacity": ""
+    }
+},
+{
+    "pk": 52, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.centralworking.com/cw-google-campus/", 
+        "city": 1, 
+        "style": "", 
+        "cost": "", 
+        "name": "Central Working Campus", 
+        "facilities": [], 
+        "country": 1, 
+        "twitter": "", 
+        "contact_twitter": "", 
+        "phone": "", 
+        "contact": "", 
+        "contact_email": "", 
+        "postcode": "EC2A4BX", 
+        "address": "4-5 Bonhill Street", 
+        "capacity": ""
+    }
+},
+{
+    "pk": 53, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.creativecollaboration.org.uk", 
+        "city": 1, 
+        "style": "Space for workshops and small startups.", 
+        "cost": "", 
+        "name": "Centre for Creative Collaboration", 
+        "facilities": [
+            6, 
+            7
+        ], 
+        "country": 1, 
+        "twitter": "", 
+        "contact_twitter": "", 
+        "phone": "", 
+        "contact": "", 
+        "contact_email": "info@creativecollaboration.org.uk", 
+        "postcode": "WC1X9NG", 
+        "address": "16 Acton Street", 
+        "capacity": "90 people"
+    }
+},
+{
+    "pk": 54, 
+    "model": "venues.venue", 
+    "fields": {
+        "website": "http://www.campuslondon.com", 
+        "city": 1, 
+        "style": "", 
+        "cost": "", 
+        "name": "Google Campus", 
+        "facilities": [
+            6, 
+            7
+        ], 
+        "country": 1, 
+        "twitter": "", 
+        "contact_twitter": "", 
+        "phone": "+442078817113", 
+        "contact": "", 
+        "contact_email": "", 
+        "postcode": "EC2A4BX", 
+        "address": "4-5 Bonhill St", 
+        "capacity": "200 people"
+    }
+}
+]
