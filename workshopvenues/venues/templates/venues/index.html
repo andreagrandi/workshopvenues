@@ -1,13 +1,26 @@
 {% extends "venues/base.html" %}
-{% block title %}My amazing blog{% endblock %}
+{% block title %}Workshop Venues{% endblock %}
+{% block menu %}
+	<ul class="nav nav-justified">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+{% endblock %}
 
 {% block content %}
+<h1>Venues</h1>
 {% if venues %}
-    <ul>
-    {% for venue in venues %}
-        <li><a href="/venues/{{ venue.id }}/">{{ venue.name }}</a></li>
-    {% endfor %}
-    </ul>
+	<div class="row">
+		{% for venue in venues %}
+			<div class="col-lg-4">
+		        <a href="/venues/{{ venue.id }}/">{{ venue.name }}</a>
+		        <p>{{ venue.address }}</p>
+		        <p>{{ venue.postcode }}</p>
+		        <p>{{ venue.phone }}</p>
+		    </div>
+		{% endfor %}
+    </div>
 {% else %}
     <p>No venues are available.</p>
 {% endif %}
