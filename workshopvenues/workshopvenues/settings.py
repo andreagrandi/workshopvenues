@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'south',
     'venues',
     'storages',
+    'contact',
 )
 
 # A sample logging configuration. The only tangible logging

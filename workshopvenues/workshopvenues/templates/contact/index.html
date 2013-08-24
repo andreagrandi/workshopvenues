@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Workshop Venues - Contact{% endblock %}
+{% block menu %}
+	<ul class="nav nav-justified">
+        <li><a href="/">Home</a></li>
+        <li><a href="about/">About</a></li>
+        <li class="active"><a href="#">Contact</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+	<form action="/contact/" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn btn-default" type="submit" value="Submit" />
+	</form>
+{% endblock %}
