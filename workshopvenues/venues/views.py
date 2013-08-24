@@ -7,4 +7,4 @@ def index(request):
     return render(request, 'venues/index.html', context)
 
 def about(request):
-	return render(request, 'venues/about.html')
+	return render(request, 'about.html')
