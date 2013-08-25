@@ -175,6 +175,8 @@ LOGGING = {
     }
 }
 
+# Amazon S3 settings
+
 AWS_ACCESS_KEY_ID = get_env_variable('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_env_variable('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = get_env_variable('AWS_STORAGE_BUCKET_NAME')
@@ -184,3 +186,10 @@ if (AWS_ACCESS_KEY_ID != '') and (AWS_SECRET_ACCESS_KEY != '') and (AWS_STORAGE_
     STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+# Sendgrid settings
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = get_env_variable('SENDGRID_USERNAME')
+EMAIL_HOST_PASSWORD = get_env_variable('SENDGRID_PASSWORD')
