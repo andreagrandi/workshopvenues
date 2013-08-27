@@ -44,6 +44,7 @@ class Venue(models.Model):
     contact_twitter = models.CharField(max_length=200, blank=True, null=True)
     cost = models.CharField(max_length=200, blank=True, null=True)
     capacity = models.CharField(max_length=200, blank=True, null=True)
+    active = models.BooleanField()
 
     def __unicode__(self):
         return self.name
