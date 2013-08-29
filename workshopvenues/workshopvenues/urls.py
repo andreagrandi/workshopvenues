@@ -4,7 +4,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-from venues import views
+from venues import views as venues_views
+from contact import views as contact_views
 
 urlpatterns = patterns('',
     # Examples:
@@ -17,5 +18,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('venues.urls')),
-    url(r'^about/', views.about, name='about')
+    url(r'^about/', venues_views.about, name='about'),
+    url(r'^contact/', contact_views.contact, name='contact')
 )
