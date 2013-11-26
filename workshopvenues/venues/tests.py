@@ -72,6 +72,7 @@ class ModelsTest(TestCase):
         v.postcode = 'xxxxx'
         v.country = country
         v.city = city
+        v.active = True
         v.save()
         v.facilities.add(fac_wifi)
         v.facilities.add(fac_elevator)
@@ -111,6 +112,7 @@ class ModelsTest(TestCase):
         v.postcode = 'xxxxx'
         v.country = country
         v.city = city
+        v.active = True
         v.save()
         v.facilities.add(fac_wifi)
         v.facilities.add(fac_elevator)
