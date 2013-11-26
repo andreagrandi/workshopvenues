@@ -19,5 +19,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('venues.urls')),
     url(r'^about/', venues_views.about, name='about'),
-    url(r'^contact/', contact_views.contact, name='contact')
+    url(r'^contact/', contact_views.contact, name='contact'),
+    url(r'^venues/', include('venues.urls')),
 )

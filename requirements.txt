@@ -1,4 +1,4 @@
-Django==1.5.2
+Django==1.6
 South==0.8.2
 argparse==1.2.1
 dj-database-url==0.2.2
@@ -13,3 +13,4 @@ wsgiref==0.1.2
 django-discover-runner==1.0
 django-storages==1.1.8
 boto==2.10.0
+factory-boy==2.2.1
