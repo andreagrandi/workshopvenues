@@ -12,3 +12,4 @@ static==0.4
 wsgiref==0.1.2
 django-storages==1.1.8
 boto==2.10.0
+factory-boy==2.2.1
