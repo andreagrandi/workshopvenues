@@ -7,18 +7,18 @@ Replace this with more appropriate tests for your application.
 
 from django.test import TestCase
 from venues.models import Venue, Facility, Image, Country, City
+import factory
+
+class FacilityFactory(factory.DjangoModelFactory):
+    FACTORY_FOR = Facility
 
 
 class ModelsTest(TestCase):
     def test_create_facility(self):
-        fac_wifi = Facility()
-        fac_wifi.name = 'WiFi'
-        fac_wifi.save()
+        fac_wifi = FacilityFactory.create(name = 'WiFi')
         self.assertTrue(fac_wifi.id >= 0)
 
-        fac_elevator = Facility()
-        fac_elevator.name = 'Elevator'
-        fac_elevator.save()
+        fac_elevator = FacilityFactory.create(name = 'Elevator')
         self.assertTrue(fac_elevator.id >= 0)
 
     def test_create_country(self):
