@@ -15,6 +15,10 @@ class FacilityFactory(factory.DjangoModelFactory):
 class CountryFactory(factory.DjangoModelFactory):
     FACTORY_FOR = Country
 
+class CityFactory(factory.DjangoModelFactory):
+    FACTORY_FOR = City
+    country = factory.SubFactory(CountryFactory)
+
 class ModelsTest(TestCase):
     def test_create_facility(self):
         fac_wifi = FacilityFactory.create(name = 'WiFi')
@@ -28,16 +32,8 @@ class ModelsTest(TestCase):
         self.assertTrue(country.id >= 0)
 
     def test_create_city(self):
-        # Create the Country first
-        country = Country()
-        country.name = "United Kingdom"
-        country.save()
-
         # Create the City
-        city = City()
-        city.name = "London"
-        city.country = country
-        city.save()
+        city = CityFactory.create(name = 'London')
         self.assertTrue(city.id >= 0)
 
     def test_create_venue(self):
