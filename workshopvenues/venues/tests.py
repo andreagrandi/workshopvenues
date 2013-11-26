@@ -12,6 +12,8 @@ from .models import Venue, Facility, Image, Country, City
 class FacilityFactory(factory.DjangoModelFactory):
     FACTORY_FOR = Facility
 
+class CountryFactory(factory.DjangoModelFactory):
+    FACTORY_FOR = Country
 
 class ModelsTest(TestCase):
     def test_create_facility(self):
@@ -22,9 +24,7 @@ class ModelsTest(TestCase):
         self.assertTrue(fac_elevator.id >= 0)
 
     def test_create_country(self):
-        country = Country()
-        country.name = "United Kingdom"
-        country.save()
+        country = CountryFactory.create(name = 'United Kingdom')
         self.assertTrue(country.id >= 0)
 
     def test_create_city(self):
