@@ -40,6 +40,11 @@ class VenueFactory(factory.DjangoModelFactory):
             for facility in extracted:
                 self.facilities.add(facility)
 
+class ImageFactory(factory.DjangoModelFactory):
+    FACTORY_FOR = Image
+    venue = factory.SubFactory(VenueFactory)
+    filename = 'image001.jpg'
+
 class ModelsTest(TestCase):
     def test_create_facility(self):
         fac_wifi = FacilityFactory.create(name = 'WiFi')
@@ -63,46 +68,5 @@ class ModelsTest(TestCase):
         self.assertTrue(venue.id >= 0)
     
     def test_create_image(self):
-        # Create the Country first
-        country = Country()
-        country.name = "United Kingdom"
-        country.save()
-
-        # Create the City
-        city = City()
-        city.name = "London"
-        city.country = country
-        city.save()
-        self.assertTrue(city.id >= 0)
-
-        # Create facilities
-        fac_wifi = Facility()
-        fac_wifi.name = 'WiFi'
-        fac_wifi.save()
-        self.assertTrue(fac_wifi.id >= 0)
-
-        fac_elevator = Facility()
-        fac_elevator.name = 'Elevator'
-        fac_elevator.save()
-        self.assertTrue(fac_elevator.id >= 0)
-
-        # Create the venue
-        v = Venue()
-        v.name = 'Venue Test'
-        v.website = 'www.myvenue.com'
-        v.street = '23, Test Street'
-        v.postcode = 'xxxxx'
-        v.country = country
-        v.city = city
-        v.active = True
-        v.save()
-        v.facilities.add(fac_wifi)
-        v.facilities.add(fac_elevator)
-        
-        # Create the image
-        i = Image()
-        i.filename = '/test/image/path'
-        i.venue = v
-        i.save()
-        self.assertEqual(i.venue.name, 'Venue Test')        
-        self.assertTrue(i.id >= 0) 
+        image = ImageFactory.create()        
+        self.assertTrue(image.id >= 0) 
