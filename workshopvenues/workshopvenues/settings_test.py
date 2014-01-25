@@ -1,6 +1,5 @@
 from settings import *
 
-TEST_RUNNER = "discover_runner.DiscoverRunner"
 TEST_DISCOVER_PATTERN = "test_*"
 SOUTH_TESTS_MIGRATE = False # To disable migrations and use syncdb instead
 SKIP_SOUTH_TESTS = True
