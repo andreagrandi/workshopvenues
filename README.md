@@ -7,7 +7,7 @@ Requirements
 ------------
 
 * sudo apt-get install python-all-dev postgresql postgresql-common postgresql-client postgresql-client-common postgresql-server-dev-9.1 python-pip
-* sudo pip install -r requirements.txt
+* install and configure virtualenv as explained here https://github.com/andreagrandi/workshopvenues/wiki/VirtualenvWrapper
 
 License
 -------
