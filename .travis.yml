@@ -26,6 +26,6 @@ env:
     - SENDGRID_USERNAME=''
     - SENDGRID_PASSWORD=''
 # command to run tests, e.g. python setup.py test
-script: coverage run workshopvenues/manage.py test --settings=workshopvenues.settings_test venues
+script: coverage run --omit=*.virtualenvs* workshopvenues/manage.py test --settings=workshopvenues.settings_test venues
 after_success:
   - coveralls
