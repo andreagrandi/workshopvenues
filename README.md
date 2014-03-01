@@ -3,6 +3,16 @@ workshopvenues
 
 Django based website dedicated to venues for workshops.
 
+Continuous integration status
+-----------------------------
+
+.. image:: https://secure.travis-ci.org/andreagrandi/workshopvenues.png?branch=master
+    :target: http://travis-ci.org/#!/andreagrandi/workshopvenues
+
+.. image:: https://coveralls.io/repos/andreagrandi/workshopvenues/badge.png?branch=master
+    :alt: Coverage
+    :target: https://coveralls.io/r/andreagrandi/workshopvenues
+
 Requirements
 ------------
 
