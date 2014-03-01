@@ -29,6 +29,11 @@ class ModelsTest(TestCase):
         venue = VenueFactory.create(facilities = (FacilityFactory(name = 'WiFI'), 
             FacilityFactory.create(name = 'Elevator')))
         self.assertTrue(venue.id >= 0)
+
+    def test_build_venue(self):
+        venue = VenueFactory.build(facilities = (FacilityFactory(name = 'WiFI'), 
+            FacilityFactory.build(name = 'Elevator')))
+        self.assertEqual(venue.id, None, "Venue id is None when is not saved.")
     
     def test_create_image(self):
         image = ImageFactory.create()        
