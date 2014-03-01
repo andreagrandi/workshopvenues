@@ -5,3 +5,4 @@ workshopvenues/workshopvenues/secrets.py
 *.db
 env.sh
 .c9revisions
+.coverage
