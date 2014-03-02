@@ -1,41 +1,39 @@
 language: python
-
 python:
-  - "2.7"
-  - "2.6"
-
+- '2.7'
+- '2.6'
 matrix:
   allow_failures:
-    - python: '2.6'
-
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+  - python: '2.6'
 install: pip install -r requirements.txt
-
-# We need to set all the required env variables before running any test
 env:
   global:
-    - WORKSHOPVENUES_ADMIN_NAME="Your Name"
-    - WORKSHOPVENUES_ADMIN_EMAIL="youremail@provider.com"
-    - WORKSHOPVENUES_DB_ENGINE="django.db.backends.postgresql_psycopg2"
-    - WORKSHOPVENUES_DB_NAME="workshopvenues"
-    - WORKSHOPVENUES_DB_USER="username"
-    - WORKSHOPVENUES_DB_PASSWORD="password"
-    - WORKSHOPVENUES_DB_HOST="localhost"
-    - WORKSHOPVENUES_DB_PORT=5432
-    - WORKSHOPVENUES_STATIC_ROOT=""
-    - WORKSHOPVENUES_STATIC_URL="/static/"
-    - WORKSHOPVENUES_STATICFILES_ASSETS="static"
-    - WORKSHOPVENUES_SECRET_KEY="$6ujpo$q$mindhv4ju0532oro3856x-&2ws5r80m(fb51q&1dk"
-    - WORKSHOPVENUES_DEBUG="True"
-    - WORKSHOPVENUES_ALLOWED_HOSTS="*"
-    - AWS_ACCESS_KEY_ID=''
-    - AWS_SECRET_ACCESS_KEY=''
-    - AWS_STORAGE_BUCKET_NAME=''
-    - SENDGRID_USERNAME=''
-    - SENDGRID_PASSWORD=''
-
-# command to run tests, e.g. python setup.py test
+  - WORKSHOPVENUES_ADMIN_NAME="Your Name"
+  - WORKSHOPVENUES_ADMIN_EMAIL="youremail@provider.com"
+  - WORKSHOPVENUES_DB_ENGINE="django.db.backends.postgresql_psycopg2"
+  - WORKSHOPVENUES_DB_NAME="workshopvenues"
+  - WORKSHOPVENUES_DB_USER="username"
+  - WORKSHOPVENUES_DB_PASSWORD="password"
+  - WORKSHOPVENUES_DB_HOST="localhost"
+  - WORKSHOPVENUES_DB_PORT=5432
+  - WORKSHOPVENUES_STATIC_ROOT=""
+  - WORKSHOPVENUES_STATIC_URL="/static/"
+  - WORKSHOPVENUES_STATICFILES_ASSETS="static"
+  - WORKSHOPVENUES_SECRET_KEY="$6ujpo$q$mindhv4ju0532oro3856x-&2ws5r80m(fb51q&1dk"
+  - WORKSHOPVENUES_DEBUG="True"
+  - WORKSHOPVENUES_ALLOWED_HOSTS="*"
+  - AWS_ACCESS_KEY_ID=''
+  - AWS_SECRET_ACCESS_KEY=''
+  - AWS_STORAGE_BUCKET_NAME=''
+  - SENDGRID_USERNAME=''
+  - SENDGRID_PASSWORD=''
 script: coverage run --omit=*.virtualenvs*,*virtualenv* workshopvenues/manage.py test --settings=workshopvenues.settings_test venues
-
 after_success:
-  - coveralls
+- coveralls
+deploy:
+  provider: heroku
+  api_key:
+    secure: R4LFkVu1/io9wSb/FvVL6UEaKU7Y4vfen/gCDe0OnEwsH+VyOwcT5tyINAg05jWXhRhsgjYT9AuyB84uCuNZg+lO7HwV5Q4WnHo5IVcCrv0PUq/CbRPUS4C2kDD7zbA1ByCd224tcfBmUtu+DPzyouk23oJH+lUwa/FeUk0Yl+I=
+  app: workshopvenues
+  on:
+    repo: andreagrandi/workshopvenues
