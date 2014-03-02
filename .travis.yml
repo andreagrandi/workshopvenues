@@ -37,3 +37,6 @@ deploy:
   app: workshopvenues
   on:
     repo: andreagrandi/workshopvenues
+  run:
+    - "python workshopvenues/manage.py syncdb"
+    - "python workshopvenues/manage.py migrate"
