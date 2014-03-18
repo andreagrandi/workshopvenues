@@ -10,6 +10,9 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
+def signin(request):
+    return render(request, 'signin.html')
+
 def detail(request, venue_id):
     try:
         venue = Venue.objects.get(pk=venue_id)
