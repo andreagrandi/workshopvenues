@@ -6,3 +6,8 @@ workshopvenues/workshopvenues/secrets.py
 env.sh
 .c9revisions
 .coverage
+
+#Environment
+.DS_Store
+venev
+venv
