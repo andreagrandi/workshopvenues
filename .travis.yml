@@ -36,3 +36,4 @@ deploy:
   run:
     - "python workshopvenues/manage.py syncdb"
     - "python workshopvenues/manage.py migrate"
+    - "python workshopvenues/manage.py collectstatic --noinput"
