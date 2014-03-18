@@ -1,0 +1,17 @@
+body { padding-top: 60px; }
+
+.form-inline .form-group{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.navbar .navbar-brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.push, footer {
+height: 63px;
+}

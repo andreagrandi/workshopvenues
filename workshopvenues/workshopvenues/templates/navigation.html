@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img src="{% static "images/wsp.png" %}"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!--<form class="navbar-form navbar-left" role="search">
+        <div class="form-inline">
+          <div class="form-group">
+            <select class="selectpicker form-control" data-style="btn-inverse" data-width="auto">
+              <option>Name</option>
+              <option>Address</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+        </div>
+      </form>-->
+      <ul class="nav navbar-nav navbar-right">
+        <li id="menu-about"><a href="/about">About</a></li>
+        <li id="menu-contact"><a href="/contact">Contact</a></li>
+        <li id="menu-signin"><a href="/signin">Signin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+function setMenuElementActive(id) {
+  $("#" + id).addClass('active');
+};
+</script>
