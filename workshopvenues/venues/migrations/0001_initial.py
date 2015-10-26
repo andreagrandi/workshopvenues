@@ -1,40 +1,82 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import migrations, models
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Venues'
-        db.create_table(u'venues_venues', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('website', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('address', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('town', self.gf('django.db.models.fields.CharField')(max_length=30)),
-            ('postcode', self.gf('django.db.models.fields.CharField')(max_length=10)),
-        ))
-        db.send_create_signal(u'venues', ['Venues'])
+    dependencies = [
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'Venues'
-        db.delete_table(u'venues_venues')
-
-
-    models = {
-        u'venues.venues': {
-            'Meta': {'object_name': 'Venues'},
-            'address': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'postcode': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
-            'town': ('django.db.models.fields.CharField', [], {'max_length': '30'}),
-            'website': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        }
-    }
-
-    complete_apps = ['venues']
+    operations = [
+        migrations.CreateModel(
+            name='City',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30)),
+            ],
+            options={
+                'verbose_name_plural': 'cities',
+            },
+        ),
+        migrations.CreateModel(
+            name='Country',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30)),
+            ],
+            options={
+                'verbose_name_plural': 'countries',
+            },
+        ),
+        migrations.CreateModel(
+            name='Facility',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=30)),
+            ],
+            options={
+                'verbose_name_plural': 'facilities',
+            },
+        ),
+        migrations.CreateModel(
+            name='Image',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('filename', models.CharField(max_length=255)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Venue',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=50)),
+                ('website', models.CharField(max_length=50, null=True, blank=True)),
+                ('address', models.CharField(max_length=200, null=True, blank=True)),
+                ('postcode', models.CharField(max_length=10, null=True, blank=True)),
+                ('style', models.CharField(max_length=200, null=True, blank=True)),
+                ('twitter', models.CharField(max_length=200, null=True, blank=True)),
+                ('phone', models.CharField(max_length=30, null=True, blank=True)),
+                ('contact', models.CharField(max_length=50, null=True, blank=True)),
+                ('contact_email', models.CharField(max_length=50, null=True, blank=True)),
+                ('contact_twitter', models.CharField(max_length=200, null=True, blank=True)),
+                ('cost', models.CharField(max_length=200, null=True, blank=True)),
+                ('capacity', models.CharField(max_length=200, null=True, blank=True)),
+                ('active', models.BooleanField()),
+                ('city', models.ForeignKey(blank=True, to='venues.City', null=True)),
+                ('country', models.ForeignKey(blank=True, to='venues.Country', null=True)),
+                ('facilities', models.ManyToManyField(to='venues.Facility', null=True, blank=True)),
+            ],
+        ),
+        migrations.AddField(
+            model_name='image',
+            name='venue',
+            field=models.ForeignKey(to='venues.Venue'),
+        ),
+        migrations.AddField(
+            model_name='city',
+            name='country',
+            field=models.ForeignKey(to='venues.Country'),
+        ),
+    ]
